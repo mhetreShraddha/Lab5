@@ -30,6 +30,7 @@ public class ManageDeliveryMenJPanel extends javax.swing.JPanel {
     Organization deliverManOrg;
     public ManageDeliveryMenJPanel(JPanel userProcessContainer,EcoSystem ecosystem,Organization deliverManOrg) {
         initComponents();
+        System.out.print("delivery boy entry");
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=ecosystem;
         this.deliverManOrg=deliverManOrg;
@@ -40,6 +41,8 @@ public void populateTable1(){
         DefaultTableModel dtm = (DefaultTableModel) tblDeliveryMenList.getModel();
         dtm.setRowCount(0);
       Organization organization1=ecosystem.getDeliveryManDirectory().searchOrganization("DeliveryMan") ;
+      System.out.print("list"+organization1.getUserAccountDirectory().getUserAccountList());
+      
         for(UserAccount ua:organization1.getUserAccountDirectory().getUserAccountList()) {
             Object row[] = new Object[3];
             row[0] = ua.getEmployee().getName();
