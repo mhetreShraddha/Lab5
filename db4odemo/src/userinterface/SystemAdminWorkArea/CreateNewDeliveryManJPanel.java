@@ -66,6 +66,8 @@ public class CreateNewDeliveryManJPanel extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         txtAirplaneId = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(195, 216, 229));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Create New Delivery Man");

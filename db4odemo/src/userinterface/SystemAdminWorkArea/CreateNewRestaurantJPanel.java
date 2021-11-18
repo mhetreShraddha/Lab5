@@ -52,12 +52,14 @@ public class CreateNewRestaurantJPanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
-//        AddManagersBtn = new javax.swing.JButton();
+        AddManagersBtn = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         txtRestaurantName = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtRestaurantAddress = new javax.swing.JTextField();
         BtnSaveRestaurant = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(195, 216, 229));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -70,12 +72,12 @@ public class CreateNewRestaurantJPanel extends javax.swing.JPanel {
             }
         });
 
-//        AddManagersBtn.setText("Add Managers >>");
-//        AddManagersBtn.addActionListener(new java.awt.event.ActionListener() {
-//            public void actionPerformed(java.awt.event.ActionEvent evt) {
-//                AddManagersBtnActionPerformed(evt);
-//            }
-//        });
+        AddManagersBtn.setText("Add Managers >>");
+        AddManagersBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddManagersBtnActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -108,9 +110,9 @@ public class CreateNewRestaurantJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-//                .addComponent(AddManagersBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                .addGap(152, 152, 152))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(AddManagersBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(152, 152, 152))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -150,7 +152,7 @@ public class CreateNewRestaurantJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtRestaurantAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
-                //.addComponent(AddManagersBtn)
+                .addComponent(AddManagersBtn)
                 .addGap(29, 29, 29)
                 .addComponent(BtnSaveRestaurant)
                 .addContainerGap(292, Short.MAX_VALUE))
@@ -218,7 +220,7 @@ public class CreateNewRestaurantJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    //private javax.swing.JButton AddManagersBtn;
+    private javax.swing.JButton AddManagersBtn;
     private javax.swing.JButton BtnSaveRestaurant;
     private javax.swing.JButton btnBack;
     private javax.swing.JLabel jLabel1;

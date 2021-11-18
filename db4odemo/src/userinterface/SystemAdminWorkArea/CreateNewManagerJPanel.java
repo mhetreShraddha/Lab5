@@ -57,7 +57,7 @@ public class CreateNewManagerJPanel extends javax.swing.JPanel {
         txtEmployeeName = new javax.swing.JTextField();
         txtAirlinerName = new javax.swing.JTextField();
         btnCreate = new javax.swing.JButton();
-//        btnBack = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
         txtUserName = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         usrNameLabel = new javax.swing.JLabel();
@@ -65,6 +65,8 @@ public class CreateNewManagerJPanel extends javax.swing.JPanel {
         PasswordTxt = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtAirplaneId = new javax.swing.JTextField();
+
+        setBackground(new java.awt.Color(195, 216, 229));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -90,12 +92,12 @@ public class CreateNewManagerJPanel extends javax.swing.JPanel {
             }
         });
 
-//        btnBack.setText("<< Back");
-//        btnBack.addActionListener(new java.awt.event.ActionListener() {
-//            public void actionPerformed(java.awt.event.ActionEvent evt) {
-//                btnBackActionPerformed(evt);
-//            }
-//        });
+        btnBack.setText("<< Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -152,8 +154,7 @@ public class CreateNewManagerJPanel extends javax.swing.JPanel {
                                     .addComponent(PasswordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(layout.createSequentialGroup()
                             .addContainerGap()
-//                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            )
+                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(247, 247, 247)
                             .addComponent(PasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -174,8 +175,7 @@ public class CreateNewManagerJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-//                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                )
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -284,7 +284,7 @@ if (passwordPatternCorrect()==false){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel PasswordLabel;
     private javax.swing.JTextField PasswordTxt;
-    //private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCreate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
