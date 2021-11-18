@@ -167,6 +167,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         btnManageEnterprise = new javax.swing.JButton();
         btnManageDeliveryMen = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(195, 216, 229));
         setLayout(new java.awt.BorderLayout());
 
         JTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {

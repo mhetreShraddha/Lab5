@@ -51,6 +51,8 @@ public class UpdateRestaurantJPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         btnSave1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(195, 216, 229));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("View/Update Airliner");
