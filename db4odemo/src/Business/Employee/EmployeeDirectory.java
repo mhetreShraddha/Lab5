@@ -17,6 +17,11 @@ public class EmployeeDirectory {
     public EmployeeDirectory() {
         employeeList = new ArrayList();
     }
+    public void deleteEmployee(Employee employee){
+        employeeList.remove(employee); 
+    }
+    
+    
 
     public ArrayList<Employee> getEmployeeList() {
         return employeeList;
@@ -29,7 +34,5 @@ public class EmployeeDirectory {
         return employee;
     }
     
-      public void deleteEmployee(Employee employee){
-        employeeList.remove(employee); 
-    }
+      
 }

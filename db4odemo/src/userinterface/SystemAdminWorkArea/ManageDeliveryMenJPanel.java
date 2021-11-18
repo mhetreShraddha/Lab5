@@ -37,10 +37,10 @@ public class ManageDeliveryMenJPanel extends javax.swing.JPanel {
         populateTable1();
         
     }
-public void populateTable1(){
+public void populateTabl(){
         DefaultTableModel dtm = (DefaultTableModel) tblDeliveryMenList.getModel();
         dtm.setRowCount(0);
-      Organization organization1=ecosystem.getDeliveryManDirectory().searchOrganization("DeliveryMan") ;
+      Organization organization1=ecosystem.getDeliveryManDirectory().searchOrganization("Delivery") ;
       System.out.print("list"+organization1.getUserAccountDirectory().getUserAccountList());
       
         for(UserAccount ua:organization1.getUserAccountDirectory().getUserAccountList()) {
@@ -53,6 +53,21 @@ public void populateTable1(){
         
         }
     }
+
+public void populateTable1() {
+    DefaultTableModel dtm = (DefaultTableModel) tblDeliveryMenList.getModel();
+    dtm.setRowCount(0);
+
+    Organization organization2 = ecosystem.getCustomerDirectory().searchOrganization("Delivery");
+    for (UserAccount ua : organization2.getUserAccountDirectory().getUserAccountList()) {
+      Object row[] = new Object[3];
+      row[0] = ua.getEmployee().getName();
+      row[1] = ua;
+      row[2] = ua.getPassword();
+      //row[4] = airliner.getFlightDir().getFlightList().size();
+      dtm.addRow(row);
+    }
+  }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -181,6 +196,8 @@ public void populateTable1(){
         // TODO add your handling code here:
           CreateNewDeliveryManJPanel panel = new CreateNewDeliveryManJPanel(userProcessContainer,ecosystem,deliverManOrg);
         userProcessContainer.add("CreateNewDeliveryManJPanel", panel);
+        
+        
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
 

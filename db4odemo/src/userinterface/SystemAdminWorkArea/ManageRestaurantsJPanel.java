@@ -45,11 +45,18 @@ public class ManageRestaurantsJPanel extends javax.swing.JPanel {
   public void populateTable() {
     DefaultTableModel dtm = (DefaultTableModel) tblRestaurantsList.getModel();
     dtm.setRowCount(0);
+    
+    
 
     DefaultTableModel dtm1 = (DefaultTableModel) tblSearchRestaurant.getModel();
     dtm1.setRowCount(0);
+    
+   System.out.print("list"+ecosystem.getEnterpriseDirectory().getEnterpriseList());
+
 
     for (Enterprise enterprise : ecosystem.getEnterpriseDirectory().getEnterpriseList()) {
+        
+        
       Object row[] = new Object[3];
       row[0] = enterprise.getName();
       row[1] = enterprise.getAddress();

@@ -12,7 +12,18 @@ package Business.Enterprise;
 public class Items {
     String itemName;
     int price;
-
+    
+    
+ public void setPrice(int price) {
+        this.price = price;
+    }
+    
+      @Override
+        public String toString(){
+        return itemName;
+    }
+        
+        
 
     public String getItemName() {
         return itemName;
@@ -26,12 +37,5 @@ public class Items {
         return price;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
-    
-      @Override
-        public String toString(){
-        return itemName;
-    }
+   
 }

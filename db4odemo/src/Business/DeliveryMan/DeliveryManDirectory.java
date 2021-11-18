@@ -38,6 +38,7 @@ public class DeliveryManDirectory {
        
         public Organization searchOrganization(String organizationName){
         for (Organization organization: organizationList) {
+            System.out.print("111111:"+organization.getName());
             if (organization.getName().equals(organizationName)) {
                 return organization;
             }
