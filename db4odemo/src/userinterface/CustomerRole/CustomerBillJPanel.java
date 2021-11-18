@@ -62,6 +62,8 @@ public class CustomerBillJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         backBtn = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(195, 216, 229));
+
         ItemsListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

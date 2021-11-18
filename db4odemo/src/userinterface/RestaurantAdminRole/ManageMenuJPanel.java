@@ -72,6 +72,8 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
         deleteButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(195, 216, 229));
+
         jLabel1.setText("Restaurant Menu");
 
         jLabel2.setText("Item Name : ");

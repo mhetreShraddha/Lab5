@@ -99,6 +99,7 @@ public class TrackOrderJPanel extends javax.swing.JPanel {
         feedbackTxt = new javax.swing.JTextField();
         ConfirmOrderBtn = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(195, 216, 229));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         orderHistoryTable.setModel(new javax.swing.table.DefaultTableModel(

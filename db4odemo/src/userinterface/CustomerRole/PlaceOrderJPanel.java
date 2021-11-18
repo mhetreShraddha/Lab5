@@ -69,160 +69,162 @@ public class PlaceOrderJPanel extends javax.swing.JPanel {
   }
 
   @SuppressWarnings("unchecked")
-  // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-  private void initComponents() {
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
 
-    jScrollPane1 = new javax.swing.JScrollPane();
-    workRequestJTable = new javax.swing.JTable();
-    requestTestJButton = new javax.swing.JButton();
-    refreshTestJButton = new javax.swing.JButton();
-    enterpriseLabel = new javax.swing.JLabel();
-    jButton1 = new javax.swing.JButton();
-    jButton2 = new javax.swing.JButton();
-    jLabel1 = new javax.swing.JLabel();
-    RestaurantComboBox = new javax.swing.JComboBox<>();
-    jLabel2 = new javax.swing.JLabel();
-    customerNotesTxt = new javax.swing.JTextField();
-    jButton3 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        workRequestJTable = new javax.swing.JTable();
+        requestTestJButton = new javax.swing.JButton();
+        refreshTestJButton = new javax.swing.JButton();
+        enterpriseLabel = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        RestaurantComboBox = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        customerNotesTxt = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
 
-    workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object[][]{
-                    {null, null},
-                    {null, null},
-                    {null, null},
-                    {null, null}
+        setBackground(new java.awt.Color(195, 216, 229));
+
+        workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
-            new String[]{
-                    "Item", "Price"
+            new String [] {
+                "Item", "Price"
             }
-    ) {
-      Class[] types = new Class[]{
-              java.lang.String.class, java.lang.String.class
-      };
-      boolean[] canEdit = new boolean[]{
-              false, false
-      };
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
 
-      public Class getColumnClass(int columnIndex) {
-        return types[columnIndex];
-      }
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
-      public boolean isCellEditable(int rowIndex, int columnIndex) {
-        return canEdit[columnIndex];
-      }
-    });
-    jScrollPane1.setViewportView(workRequestJTable);
-    if (workRequestJTable.getColumnModel().getColumnCount() > 0) {
-      workRequestJTable.getColumnModel().getColumn(0).setResizable(false);
-      workRequestJTable.getColumnModel().getColumn(1).setResizable(false);
-    }
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(workRequestJTable);
+        if (workRequestJTable.getColumnModel().getColumnCount() > 0) {
+            workRequestJTable.getColumnModel().getColumn(0).setResizable(false);
+            workRequestJTable.getColumnModel().getColumn(1).setResizable(false);
+        }
 
-    requestTestJButton.setText("Add to cart");
-    requestTestJButton.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        requestTestJButtonActionPerformed(evt);
-      }
-    });
+        requestTestJButton.setText("Add to cart");
+        requestTestJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                requestTestJButtonActionPerformed(evt);
+            }
+        });
 
-    refreshTestJButton.setText("Search Menu");
-    refreshTestJButton.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        refreshTestJButtonActionPerformed(evt);
-      }
-    });
+        refreshTestJButton.setText("Search Menu");
+        refreshTestJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshTestJButtonActionPerformed(evt);
+            }
+        });
 
-    enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-    enterpriseLabel.setText("Order Placing");
+        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        enterpriseLabel.setText("Order Placing");
 
-    jButton1.setText("Delete from cart");
-    jButton1.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jButton1ActionPerformed(evt);
-      }
-    });
+        jButton1.setText("Delete from cart");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-    jButton2.setText("Place order");
-    jButton2.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jButton2ActionPerformed(evt);
-      }
-    });
+        jButton2.setText("Place order");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-    jLabel1.setText("Select Restaurant :");
+        jLabel1.setText("Select Restaurant :");
 
-    jLabel2.setText("Any message to restaurant?");
+        jLabel2.setText("Any message to restaurant?");
 
-    jButton3.setText("back");
-    jButton3.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jButton3ActionPerformed(evt);
-      }
-    });
+        jButton3.setText("back");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
-    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-    this.setLayout(layout);
-    layout.setHorizontalGroup(
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(243, 243, 243)
-                            .addComponent(refreshTestJButton)
-                            .addGap(162, 162, 162))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(243, 243, 243)
+                .addComponent(refreshTestJButton)
+                .addGap(162, 162, 162))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                            .addGap(92, 92, 92)
-                                            .addComponent(jButton2)
-                                            .addGap(168, 168, 168)
-                                            .addComponent(jButton1)
-                                            .addGap(105, 105, 105)
-                                            .addComponent(requestTestJButton))
-                                    .addGroup(layout.createSequentialGroup()
-                                            .addGap(131, 131, 131)
-                                            .addComponent(jLabel1)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(RestaurantComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                            .addGap(25, 25, 25)
-                                            .addComponent(jButton3)
-                                            .addGap(138, 138, 138)
-                                            .addComponent(enterpriseLabel))
-                                    .addGroup(layout.createSequentialGroup()
-                                            .addGap(145, 145, 145)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                            .addComponent(jLabel2)
-                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                            .addComponent(customerNotesTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGap(86, 86, 86))
-    );
-    layout.setVerticalGroup(
+                        .addGap(92, 92, 92)
+                        .addComponent(jButton2)
+                        .addGap(168, 168, 168)
+                        .addComponent(jButton1)
+                        .addGap(105, 105, 105)
+                        .addComponent(requestTestJButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(131, 131, 131)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(RestaurantComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jButton3)
+                        .addGap(138, 138, 138)
+                        .addComponent(enterpriseLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(customerNotesTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(86, 86, 86))
+        );
+        layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                            .addGap(27, 27, 27)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton3))
-                            .addGap(44, 44, 44)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel1)
-                                    .addComponent(RestaurantComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(17, 17, 17)
-                            .addComponent(refreshTestJButton)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel2)
-                                    .addComponent(customerNotesTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(19, 19, 19)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(requestTestJButton)
-                                    .addComponent(jButton1)
-                                    .addComponent(jButton2))
-                            .addGap(63, 63, 63))
-    );
-  }// </editor-fold>//GEN-END:initComponents
+            .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3))
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(RestaurantComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addComponent(refreshTestJButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(customerNotesTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(requestTestJButton)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(63, 63, 63))
+        );
+    }// </editor-fold>//GEN-END:initComponents
 
   private void requestTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestTestJButtonActionPerformed
 
@@ -296,18 +298,18 @@ public class PlaceOrderJPanel extends javax.swing.JPanel {
     layout.previous(userProcessContainer);
   }//GEN-LAST:event_jButton3ActionPerformed
 
-  // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JComboBox<String> RestaurantComboBox;
-  private javax.swing.JTextField customerNotesTxt;
-  private javax.swing.JLabel enterpriseLabel;
-  private javax.swing.JButton jButton1;
-  private javax.swing.JButton jButton2;
-  private javax.swing.JButton jButton3;
-  private javax.swing.JLabel jLabel1;
-  private javax.swing.JLabel jLabel2;
-  private javax.swing.JScrollPane jScrollPane1;
-  private javax.swing.JButton refreshTestJButton;
-  private javax.swing.JButton requestTestJButton;
-  private javax.swing.JTable workRequestJTable;
-  // End of variables declaration//GEN-END:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> RestaurantComboBox;
+    private javax.swing.JTextField customerNotesTxt;
+    private javax.swing.JLabel enterpriseLabel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton refreshTestJButton;
+    private javax.swing.JButton requestTestJButton;
+    private javax.swing.JTable workRequestJTable;
+    // End of variables declaration//GEN-END:variables
 }

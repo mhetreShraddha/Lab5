@@ -81,6 +81,7 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         ItemsListTable = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(195, 216, 229));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         orderRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
