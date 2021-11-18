@@ -19,9 +19,22 @@ public class CustomerDirectory {
     public CustomerDirectory() {
         organizationList = new ArrayList();
     }
+    
+     public void deleteCustomer(Customer customer){
+        organizationList.remove(customer); 
+    }
 
     public ArrayList<Organization> getOrganizationList() {
         return organizationList;
+    }
+    
+    public Organization searchOrganization(String organizationName){
+        for (Organization organization: organizationList) {
+            if (organization.getName().equals(organizationName)) {
+                return organization;
+            }
+        }
+        return null;
     }
     
     public Organization createOrganization(Organization.Type type){
@@ -34,17 +47,8 @@ public class CustomerDirectory {
     }
     
    
-      public void deleteCustomer(Customer customer){
-        organizationList.remove(customer); 
-    }
+   
     
-        public Organization searchOrganization(String organizationName){
-        for (Organization organization: organizationList) {
-            if (organization.getName().equals(organizationName)) {
-                return organization;
-            }
-        }
-        return null;
-    }
+        
     
 }

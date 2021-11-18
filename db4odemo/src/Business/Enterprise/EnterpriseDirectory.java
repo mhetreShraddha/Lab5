@@ -8,8 +8,10 @@ import java.util.ArrayList;
 
 /**
  *
- * @author MyPC1
+ * @author mhetr
  */
+
+
 public class EnterpriseDirectory {
     private ArrayList<Enterprise> enterpriseList;
    
@@ -26,7 +28,9 @@ public class EnterpriseDirectory {
         this.enterpriseList = enterpriseList;
     }
     
-  
+     public void deleteEnterprise(Enterprise enterprise){
+        enterpriseList.remove(enterprise); 
+    }
     
     //Create enterprise
     public Enterprise createAndAddEnterprise(String name,String address,Enterprise.EnterpriseType type){
@@ -35,6 +39,8 @@ public class EnterpriseDirectory {
             enterprise=new RestaurantEnterprise(name,address);
             enterpriseList.add(enterprise);
         }
+        
+        
         return enterprise;
     }
     
@@ -47,7 +53,5 @@ public class EnterpriseDirectory {
         return null;
     }
         
-         public void deleteEnterprise(Enterprise enterprise){
-        enterpriseList.remove(enterprise); 
-    }
+      
 }

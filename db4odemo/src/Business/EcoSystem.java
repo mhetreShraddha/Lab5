@@ -16,8 +16,10 @@ import java.util.ArrayList;
 
 /**
  *
- * @author MyPC1
+ * @author mhetr
  */
+
+
 public class EcoSystem extends Organization {
 
   private static EcoSystem business;

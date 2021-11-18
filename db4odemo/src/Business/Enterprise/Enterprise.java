@@ -12,12 +12,16 @@ import java.util.ArrayList;
 
 /**
  *
- * @author MyPC1
+ * @author mhetr
  */
+
+
 public abstract class Enterprise extends Organization{
     private String name;
     private String address;
     private ArrayList<Items> itemsList;
+    
+    
     private EnterpriseType enterpriseType;
     private RestaurantDirectory restaurantDirectory;
 
