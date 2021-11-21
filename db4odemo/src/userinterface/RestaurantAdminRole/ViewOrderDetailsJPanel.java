@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author dgoda
+ * @author mhetr
  */
 public class ViewOrderDetailsJPanel extends javax.swing.JPanel {
 
