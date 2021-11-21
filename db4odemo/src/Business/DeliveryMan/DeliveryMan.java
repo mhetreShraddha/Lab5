@@ -5,26 +5,95 @@
  */
 package Business.DeliveryMan;
 
-import Business.Organization;
-import Business.Role.Role;
+import Business.Restaurant.Dishes;
+import Business.Restaurant.Order;
 import java.util.ArrayList;
-import Business.Role.DeliveryManRole;
 
 /**
  *
  * @author harold
  */
-public class DeliveryMan extends Organization{
-
-      public DeliveryMan() {
-        super(Organization.Type.DeliveryMan.getValue());
-    }
+public class DeliveryMan {
     
-    @Override
-    public ArrayList<Role> getSupportedRole() {
-        ArrayList<Role> roles = new ArrayList();
-        roles.add(new DeliveryManRole());
-        return roles;
+    public String deliverymanName;
+    public String deliverymanUsername;
+    public String deliverymanPassword;
+    public String deliverymanAddress;
+    public String deliverymanNumber;
+    public ArrayList<Order> orderList;
+    int id = 1;
+    
+    public DeliveryMan(String deliverymanName, String deliverymanUsername, String deliverymanPassword, String deliverymanAddress, String deliverymanNumber) {
+        this.deliverymanName = deliverymanName;
+        this.deliverymanUsername = deliverymanUsername;
+        this.deliverymanPassword = deliverymanPassword;
+        this.deliverymanAddress = deliverymanAddress;
+        this.deliverymanNumber = deliverymanNumber;
+        orderList = new ArrayList<Order>();
     }
-  
+
+    public String getDeliverymanName() {
+        return deliverymanName;
+    }
+
+    public void setDeliverymanName(String deliverymanName) {
+        this.deliverymanName = deliverymanName;
+    }
+
+    public String getDeliverymanUsername() {
+        return deliverymanUsername;
+    }
+
+    public void setDeliverymanUsername(String deliverymanUsername) {
+        this.deliverymanUsername = deliverymanUsername;
+    }
+
+    public String getDeliverymanPassword() {
+        return deliverymanPassword;
+    }
+
+    public void setDeliverymanPassword(String deliverymanPassword) {
+        this.deliverymanPassword = deliverymanPassword;
+    }
+
+    public String getDeliverymanAddress() {
+        return deliverymanAddress;
+    }
+
+    public void setDeliverymanAddress(String deliverymanAddress) {
+        this.deliverymanAddress = deliverymanAddress;
+    }
+
+    public String getDeliverymanNumber() {
+        return deliverymanNumber;
+    }
+
+    public void setDeliverymanNumber(String deliverymanNumber) {
+        this.deliverymanNumber = deliverymanNumber;
+    }
+
+    public ArrayList<Order> getOrderList() {
+        if(orderList == null) {
+            orderList = new ArrayList<Order>();
+        }
+        return orderList;
+    }
+
+    public void setOrderList(ArrayList<Order> orderList) {
+        this.orderList = orderList;
+    }
+        
+    public void addOrder(String orderId, String restaurantName, String customerName, String delivermanName, String totalPrice, String status, ArrayList<Dishes> dishesList, String deliveryAddress) {
+        Order order = new Order(orderId, restaurantName, customerName, delivermanName, totalPrice, "New Order", dishesList, deliveryAddress);
+        if(orderList == null) {
+            orderList = new ArrayList<Order>();
+        }
+        orderList.add(order);
+        id++;
+    }
+
+    @Override
+    public String toString() {
+        return deliverymanName;
+    }
 }

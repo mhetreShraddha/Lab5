@@ -4,18 +4,20 @@
  */
 package userinterface.CustomerRole;
 
+import Business.Customer.Customer;
 import Business.EcoSystem;
-import Business.Enterprise.Enterprise;
-import Business.Enterprise.Items;
-import Business.Organization;
+import Business.Restaurant.Order;
+import Business.Restaurant.Restaurant;
 
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.LabTestWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
-import javax.swing.DefaultComboBoxModel;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import userinterface.Orders.ManageOrderJPanel;
 
 /**
  *
@@ -24,28 +26,34 @@ import javax.swing.table.DefaultTableModel;
 public class CustomerAreaJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
-
+    private EcoSystem ecosystem;
     private UserAccount userAccount;
-    private EcoSystem business;
-    private Enterprise enterprise;
-    private Organization organization;
-    
-    public CustomerAreaJPanel(JPanel userProcessContainer, 
-            UserAccount account, 
-            Organization organization, 
-            Enterprise enterprise, 
-            EcoSystem business) {
-        initComponents();
-        
-        this.userProcessContainer = userProcessContainer;
-      this.enterprise=enterprise;
-        this.userAccount = account;
-       this.business=business;
-       this.organization=organization;
-    }
-    
 
-    
+    /**
+     * Creates new form DoctorWorkAreaJPanel
+     */
+    public CustomerAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem) {
+        initComponents();
+
+        this.userProcessContainer = userProcessContainer;
+        this.ecosystem = ecosystem;
+        this.userAccount = account;
+        lblName.setText(account.getName());
+        populateRestaurantInfoTable();
+    }
+
+    public void populateRestaurantInfoTable() {
+        DefaultTableModel restaurantModel = (DefaultTableModel) tblRestaurants.getModel();
+        restaurantModel.setRowCount(0);
+        for (Restaurant restaurant : ecosystem.getRestaurantDirectory().getRestaurantList()) {
+            Object[] row = new Object[3];
+            row[0] = restaurant;
+            row[1] = restaurant.getRestaurantAddress();
+            row[2] = restaurant.getRestaurantNumber();
+            restaurantModel.addRow(row);
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,74 +63,203 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblRestaurants = new javax.swing.JTable();
+        btnPlaceOrder = new javax.swing.JButton();
+        refreshTestJButton = new javax.swing.JButton();
+        enterpriseLabel = new javax.swing.JLabel();
+        lblName = new javax.swing.JLabel();
+        lblCustomerOrders = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblPreviousOrders = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(195, 216, 229));
+        setBackground(new java.awt.Color(255, 204, 204));
 
-        jButton4.setText("Place new order");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        tblRestaurants.setFont(new java.awt.Font("Poppins", 0, 11)); // NOI18N
+        tblRestaurants.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Restaurant Name", "Restaurant Address", "Restaurant Number"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblRestaurants);
+        if (tblRestaurants.getColumnModel().getColumnCount() > 0) {
+            tblRestaurants.getColumnModel().getColumn(0).setResizable(false);
+            tblRestaurants.getColumnModel().getColumn(1).setResizable(false);
+            tblRestaurants.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        btnPlaceOrder.setFont(new java.awt.Font("Poppins", 1, 13)); // NOI18N
+        btnPlaceOrder.setText("Place Order");
+        btnPlaceOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnPlaceOrderActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Track Orders");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        refreshTestJButton.setFont(new java.awt.Font("Poppins", 1, 13)); // NOI18N
+        refreshTestJButton.setText("Refresh");
+        refreshTestJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                refreshTestJButtonActionPerformed(evt);
             }
         });
+
+        enterpriseLabel.setFont(new java.awt.Font("Poppins", 1, 13)); // NOI18N
+        enterpriseLabel.setText("Hello, Welcome");
+
+        lblName.setFont(new java.awt.Font("Poppins", 1, 13)); // NOI18N
+        lblName.setText("<value>");
+
+        lblCustomerOrders.setFont(new java.awt.Font("Poppins", 1, 13)); // NOI18N
+        lblCustomerOrders.setText("Customer Previous Orders");
+
+        tblPreviousOrders.setFont(new java.awt.Font("Poppins", 0, 11)); // NOI18N
+        tblPreviousOrders.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Order ID", "Restaurant Name", "Total Price", "Status"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tblPreviousOrders);
+        if (tblPreviousOrders.getColumnModel().getColumnCount() > 0) {
+            tblPreviousOrders.getColumnModel().getColumn(0).setResizable(false);
+            tblPreviousOrders.getColumnModel().getColumn(1).setResizable(false);
+            tblPreviousOrders.getColumnModel().getColumn(2).setResizable(false);
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(240, 240, 240)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(375, 375, 375))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(refreshTestJButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addComponent(enterpriseLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnPlaceOrder)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(221, 221, 221)
+                        .addComponent(lblCustomerOrders)))
+                .addGap(207, 207, 207))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnPlaceOrder, refreshTestJButton});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(116, 116, 116)
-                .addComponent(jButton4)
-                .addGap(71, 71, 71)
-                .addComponent(jButton5)
-                .addGap(207, 207, 207))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(enterpriseLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(refreshTestJButton)
+                    .addComponent(btnPlaceOrder))
+                .addGap(37, 37, 37)
+                .addComponent(lblCustomerOrders, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnPlaceOrder, refreshTestJButton});
+
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-          PlaceOrderJPanel panel = new PlaceOrderJPanel(userProcessContainer, 
-           userAccount,
-                  organization,
-            enterprise, 
-            business);
-        userProcessContainer.add("PlaceOrderJPanel", panel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-        
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
+        int selectedRow = tblRestaurants.getSelectedRow();
+        if (selectedRow >= 0) {
+            Restaurant restaurant = (Restaurant) tblRestaurants.getValueAt(selectedRow, 0);
+            ManageOrderJPanel manageOrdersJPanel = new ManageOrderJPanel(userProcessContainer, ecosystem, userAccount, restaurant);
+            userProcessContainer.add("ManageOrders", manageOrdersJPanel);
+            CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
+            cardLayout.next(userProcessContainer);
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Please select a row to Place the Order.");
+        }
+    }//GEN-LAST:event_btnPlaceOrderActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-          TrackOrderJPanel panel = new TrackOrderJPanel(userProcessContainer, 
-           userAccount,
-                  organization,
-            enterprise, 
-            business);
-        userProcessContainer.add("CancelOrderJPanel", panel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void refreshTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshTestJButtonActionPerformed
+        Customer customer = ecosystem.getCustomerDirectory().getCustomer(userAccount.getUsername());
+        ArrayList<Restaurant> restoDirectory = ecosystem.getRestaurantDirectory().getRestaurantList();
+        DefaultTableModel previousOrderModel = (DefaultTableModel) tblPreviousOrders.getModel();
+        previousOrderModel.setRowCount(0);
+        for(Order order: customer.getOrderList()) {
+            Object[] row = new Object[4];
+            row[0] = order;
+            row[1] = order.getRestaurantName();
+            row[2] = order.getTotalPrice();
+            row[3] = order.getStatus();
+            previousOrderModel.addRow(row);
+        }
+    }//GEN-LAST:event_refreshTestJButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton btnPlaceOrder;
+    private javax.swing.JLabel enterpriseLabel;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblCustomerOrders;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JButton refreshTestJButton;
+    private javax.swing.JTable tblPreviousOrders;
+    private javax.swing.JTable tblRestaurants;
     // End of variables declaration//GEN-END:variables
 }

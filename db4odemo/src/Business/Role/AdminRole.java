@@ -5,7 +5,6 @@
 package Business.Role;
 
 import Business.EcoSystem;
-import Business.Enterprise.Enterprise;
 
 import Business.Organization;
 import Business.UserAccount.UserAccount;
@@ -18,20 +17,8 @@ import javax.swing.JPanel;
  */
 public class AdminRole extends Role{
 
-    public JPanel createWorkArea(JPanel userProcessContainer, 
-            UserAccount account, 
-            Organization organization, 
-            Enterprise enterprise, 
-            EcoSystem business){
-           return new AdminWorkAreaJPanel(userProcessContainer,account, 
-            organization, 
-            enterprise,business);
+    @Override
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
+        return new AdminWorkAreaJPanel(userProcessContainer, business, account);
     }
-
-    public JPanel createWorkArea(JPanel pnl, UserAccount ua, EcoSystem es) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
-    
 }

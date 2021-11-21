@@ -25,17 +25,17 @@ public class UserAccountDirectory {
     }
     
     public UserAccount authenticateUser(String username, String password){
-        for (UserAccount ua : userAccountList){
-         System.out.print("username=="+ua.getUsername()+ " pasword"+ua.getPassword());
-            if (ua.getUsername().equals(username) && ua.getPassword().equals(password)){
+        for (UserAccount ua : userAccountList)
+            if (ua.getUsername().equals(username) && ua.getPassword().equals(password))
+            {
                 return ua;
             }
-        }
         return null;
     }
     
-    public UserAccount createUserAccount(String username, String password, Employee employee, Role role){
+    public UserAccount createUserAccount(String name, String username, String password, Employee employee, Role role){
         UserAccount userAccount = new UserAccount();
+        userAccount.setName(name);
         userAccount.setUsername(username);
         userAccount.setPassword(password);
         userAccount.setEmployee(employee);
@@ -52,7 +52,13 @@ public class UserAccountDirectory {
         return true;
     }
     
-     public void deleteUserAccount(UserAccount userAccount){
-        userAccountList.remove(userAccount); 
+    public void saveUserAccount(UserAccount userAccount, String name, String username, String password) {
+        userAccount.setName(name);
+        userAccount.setUsername(username);
+        userAccount.setPassword(password);
+    }
+    
+    public void deleteUserAccount(UserAccount userAccount) {
+        userAccountList.remove(userAccount);
     }
 }

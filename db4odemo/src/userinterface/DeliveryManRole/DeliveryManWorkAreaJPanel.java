@@ -4,20 +4,14 @@
  */
 package userinterface.DeliveryManRole;
 
-import org.netbeans.lib.awtextra.AbsoluteConstraints;
-import org.netbeans.lib.awtextra.AbsoluteLayout;
-
+import Business.DeliveryMan.DeliveryMan;
 import Business.EcoSystem;
-import Business.Enterprise.Enterprise;
-import Business.Order;
-import Business.Organization;
+import Business.Restaurant.Order;
 
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.LabTestWorkRequest;
 import Business.WorkQueue.WorkRequest;
-
-import java.awt.*;
-
+import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -28,44 +22,37 @@ import javax.swing.table.DefaultTableModel;
  */
 public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
-    private EcoSystem business;
-    private UserAccount userAccount;
-    
-    
     /**
      * Creates new form LabAssistantWorkAreaJPanel
      */
-    public DeliveryManWorkAreaJPanel(JPanel userProcessContainer, 
-            UserAccount account, 
-            Organization organization, 
-            Enterprise enterprise, 
-            EcoSystem business) {
+    private JPanel userProcessContainer;
+    private EcoSystem ecoSystem;
+    private UserAccount userAccount;
+    private Order order;
+
+    public DeliveryManWorkAreaJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, UserAccount userAccount) {
         initComponents();
-        
+
         this.userProcessContainer = userProcessContainer;
-        this.userAccount = account;
-        this.business = business;
-      
-        
-        populateTable();
+        this.userAccount = userAccount;
+        this.ecoSystem = ecoSystem;
+        populateDeliveryDetailsTable();
     }
-    
-    public void populateTable(){
-           DefaultTableModel dtm = (DefaultTableModel) workRequestJTable.getModel();
-        dtm.setRowCount(0);
-        for(Order order:business.getOrderDirectory().getOrderList()) {
-  if(order.getDeliveryManName()!=null && order.getDeliveryManName().equals(userAccount.getEmployee().getName())){
-            Object row[] = new Object[6];
+
+    public void populateDeliveryDetailsTable() {
+        DefaultTableModel deliveryInfoTable = (DefaultTableModel) tblDeliveryInfo.getModel();
+        deliveryInfoTable.setRowCount(0);
+        DeliveryMan deliveryMan = ecoSystem.getDeliveryManDirectory().getDeliveryMan(userAccount.getUsername());
+        for (Order order : deliveryMan.getOrderList()) {
+            Object[] row = new Object[6];
             row[0] = order;
-            row[1] = order.getCustomerId();
+            row[1] = order.getRestaurantName();
             row[2] = order.getCustomerName();
-            row[3] = order.getCustomerNotes();
-            row[4] = order.getStatus();
-            row[5] = order.getRestaurantName();
-            dtm.addRow(row);
+            row[3] = order.getDeliveryAddress();
+            row[4] = order.getTotalPrice();
+            row[5] = order.getStatus();
+            deliveryInfoTable.addRow(row);
         }
-    }
     }
 
     /**
@@ -77,31 +64,15 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblDeliveryInfo = new javax.swing.JTable();
         processJButton = new javax.swing.JButton();
         refreshJButton = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        workRequestJTable = new javax.swing.JTable();
+        lblManageDelivery = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(195, 216, 229));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setBackground(new java.awt.Color(255, 204, 204));
 
-        processJButton.setText("Order Delivered");
-        processJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                processJButtonActionPerformed(evt);
-            }
-        });
-        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 215, -1, -1));
-
-        refreshJButton.setText("Refresh");
-        refreshJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refreshJButtonActionPerformed(evt);
-            }
-        });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 26, -1, -1));
-
-        workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
+        tblDeliveryInfo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -109,11 +80,11 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Order Id", "Customer Id", "Customer Name", "Message from customer", "Status", "Restaurant Name"
+                "Order ID", "Restaurant Name", "Customer Name", "Customer Address", "Total Price", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false
@@ -127,34 +98,86 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(workRequestJTable);
+        jScrollPane1.setViewportView(tblDeliveryInfo);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 58, 710, 96));
+        processJButton.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        processJButton.setText("Process the Order");
+        processJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                processJButtonActionPerformed(evt);
+            }
+        });
+
+        refreshJButton.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        refreshJButton.setText("Refresh");
+        refreshJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshJButtonActionPerformed(evt);
+            }
+        });
+
+        lblManageDelivery.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblManageDelivery.setText("Manage Delivery Information");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(253, 253, 253)
+                        .addComponent(lblManageDelivery))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(refreshJButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(processJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(lblManageDelivery)
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(refreshJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(processJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(297, Short.MAX_VALUE))
+        );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {processJButton, refreshJButton});
+
     }// </editor-fold>//GEN-END:initComponents
 
     private void processJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processJButtonActionPerformed
-        
-        int selectedRow = workRequestJTable.getSelectedRow();
-        
+
+        int selectedRow = tblDeliveryInfo.getSelectedRow();
         if (selectedRow < 0){
-            return;
+            JOptionPane.showMessageDialog(null, "Please select a row to process the Order.");
         }
-        
-        Order order1 = (Order)workRequestJTable.getValueAt(selectedRow, 0);
-        order1.setStatus("delivered");
-         
-            JOptionPane.showMessageDialog(null, "This order is delivered successfully");
-        
+        Order order = (Order)tblDeliveryInfo.getValueAt(selectedRow, 0); 
+        ProcessWorkRequestJPanel processWorkRequestJPanel = new ProcessWorkRequestJPanel(userProcessContainer, order, ecoSystem);
+        userProcessContainer.add("processWorkRequestJPanel", processWorkRequestJPanel);
+        CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
+        cardLayout.next(userProcessContainer);
     }//GEN-LAST:event_processJButtonActionPerformed
 
     private void refreshJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshJButtonActionPerformed
-        populateTable();
+        populateDeliveryDetailsTable();
     }//GEN-LAST:event_refreshJButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblManageDelivery;
     private javax.swing.JButton processJButton;
     private javax.swing.JButton refreshJButton;
-    private javax.swing.JTable workRequestJTable;
+    private javax.swing.JTable tblDeliveryInfo;
     // End of variables declaration//GEN-END:variables
 }

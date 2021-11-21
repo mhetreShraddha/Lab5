@@ -5,7 +5,6 @@
  */
 package Business.Customer;
 
-import Business.Organization;
 import java.util.ArrayList;
 
 /**
@@ -14,41 +13,57 @@ import java.util.ArrayList;
  */
 public class CustomerDirectory {
     
-    private ArrayList<Organization> organizationList;
-
+    private Customer customer;
+    private ArrayList<Customer> customerList;
+    
     public CustomerDirectory() {
-        organizationList = new ArrayList();
-    }
-    
-     public void deleteCustomer(Customer customer){
-        organizationList.remove(customer); 
+        this.customerList = new ArrayList<Customer>();
     }
 
-    public ArrayList<Organization> getOrganizationList() {
-        return organizationList;
-    }
-    
-    public Organization searchOrganization(String organizationName){
-        for (Organization organization: organizationList) {
-            if (organization.getName().equals(organizationName)) {
-                return organization;
+    public Customer getCustomer(String customerUsername) {
+        for(Customer customer: customerList) {
+            if(customer.getUsername().equalsIgnoreCase(customerUsername)) {
+                return customer;
             }
         }
         return null;
     }
-    
-    public Organization createOrganization(Organization.Type type){
-        Organization organization = null;
-      if (type.getValue().equals(Organization.Type.Customer.getValue())){
-            organization = new Customer();
-            organizationList.add(organization);
-        }
-        return organization;
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public ArrayList<Customer> getCustomerList() {
+        return customerList;
+    }
+
+    public void setCustomerList(ArrayList<Customer> customerList) {
+        this.customerList = customerList;
     }
     
-   
-   
+    public Customer createCustomer(String name, String username, String password, String address, String number) {
+        customer = new Customer(name, username, password, address, number);
+        customerList.add(customer);
+        return customer;
+    }
     
-        
+    public void deleteCustomer(String username) {
+        for(int i=0; i<customerList.size(); i++) {
+            if(customerList.get(i).getUsername() == username) {
+                customerList.remove(i);
+            }
+        }
+    }
     
+    public void updateCustomer(Customer customer, String name, String username, String password, String address, String number) {
+        for(Customer cust: customerList) {
+            if(cust.getUsername().equalsIgnoreCase(username)) {
+                customer.name = name;
+                customer.username = username;
+                customer.password = password;
+                customer.address = address;
+                customer.number = number;
+            }
+        }
+    }
 }
