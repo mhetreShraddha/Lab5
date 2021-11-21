@@ -62,7 +62,7 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 204, 204));
+        setBackground(new java.awt.Color(204, 204, 255));
 
         lblManageMenuInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblManageMenuInfo.setText("Add New Menu ");

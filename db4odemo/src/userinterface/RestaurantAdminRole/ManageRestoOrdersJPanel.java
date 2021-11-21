@@ -54,7 +54,7 @@ public class ManageRestoOrdersJPanel extends javax.swing.JPanel {
         btnViewOrder = new javax.swing.JButton();
         btnAssignDeliveryMan = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 204, 204));
+        setBackground(new java.awt.Color(204, 204, 255));
 
         lblRestoOrdersInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblRestoOrdersInfo.setText("Manage Customer Order");

@@ -56,7 +56,7 @@ public class ViewOrderDetailsJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblViewOrderDetails = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(255, 204, 204));
+        setBackground(new java.awt.Color(204, 204, 255));
 
         btnBack.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnBack.setText("Back");

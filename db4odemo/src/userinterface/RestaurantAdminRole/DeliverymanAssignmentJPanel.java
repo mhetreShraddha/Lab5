@@ -55,7 +55,7 @@ public class DeliverymanAssignmentJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblAssignDeliveryman = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(255, 204, 204));
+        setBackground(new java.awt.Color(204, 204, 255));
 
         lblDeliverymanAssignment.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblDeliverymanAssignment.setText("Assign Delivery Man");

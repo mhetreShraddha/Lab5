@@ -46,7 +46,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 204, 204));
+        setBackground(new java.awt.Color(204, 204, 255));
 
         lblRestaurantAdminArea.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblRestaurantAdminArea.setText("Restaurant Admin Work Area");
