@@ -50,7 +50,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         backJButton = new javax.swing.JButton();
         lblDeliveryStatus = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 204, 204));
+        setBackground(new java.awt.Color(204, 204, 255));
 
         btnStatusUpdated.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnStatusUpdated.setText("Status Updated");

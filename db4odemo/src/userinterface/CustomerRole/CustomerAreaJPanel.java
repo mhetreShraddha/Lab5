@@ -73,7 +73,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblPreviousOrders = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(255, 204, 204));
+        setBackground(new java.awt.Color(204, 204, 255));
 
         tblRestaurants.setFont(new java.awt.Font("Poppins", 0, 11)); // NOI18N
         tblRestaurants.setModel(new javax.swing.table.DefaultTableModel(

@@ -66,7 +66,7 @@ public class ManageCustomersJPanel extends javax.swing.JPanel {
         txtNumber = new javax.swing.JTextField();
         lblCustomerInfo = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 204, 204));
+        setBackground(new java.awt.Color(204, 204, 255));
 
         lblName.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);

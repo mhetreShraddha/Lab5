@@ -70,7 +70,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         txtTotalPrice = new javax.swing.JTextField();
         btnPlaceOrder1 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 204, 204));
+        setBackground(new java.awt.Color(204, 204, 255));
 
         lblMenu.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblMenu.setText("Menu");
